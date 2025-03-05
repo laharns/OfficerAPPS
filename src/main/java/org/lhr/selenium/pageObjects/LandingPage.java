@@ -32,7 +32,7 @@ public class LandingPage extends AbstractComponent {
         waitForElementVisible(propertyFileReader.getLocator("error_message_selector"), 5);
         return driver.findElement(propertyFileReader.getLocator("error_message_selector")).getText();
     }
-    public String clickForgotPassword() throws InterruptedException {
+    public String clickForgotPassword()  {
         By forgotPasswordLink = propertyFileReader.getLocator("forgot_password");
         By forgotTextLocator = propertyFileReader.getLocator("forgot_text");
 

@@ -23,24 +23,24 @@ public class ErrorValidationsTest extends BaseTest {
         landingPage.goTo();
     }
     @Test
-    public void LoginErrorValidation() throws IOException {
+    public void LoginErrorValidation() {
         landingPage.loginApplication("MarryIND", "Test@12345");
         Assert.assertEquals( "You have entered an incorrect password...",landingPage.getErrorMessage());
     }
 
     @Test
-    public void forgotPageTest() throws InterruptedException {
+    public void forgotPageTest() {
         landingPage.clickForgotPassword();
 
         forgotPage.enterUserForReset("test");
         forgotPage.submitForgotPassword();
-        Assert.assertEquals("User Does Not Exist.",forgotPage.getForgotErrorMessage());
+        Assert.assertEquals("User Does Not Exist..",forgotPage.getForgotErrorMessage());
         forgotPage.clickHomeButton();
     }
 
-    //   @AfterClass
-   // public void tearDown() {
-       // driver.quit();
-    //}
+     @AfterClass
+        public void tearDown() {
+       driver.quit();
+   }
 
 }
