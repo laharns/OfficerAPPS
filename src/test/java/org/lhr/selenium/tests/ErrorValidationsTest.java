@@ -38,9 +38,9 @@ public class ErrorValidationsTest extends BaseTest {
         forgotPage.clickHomeButton();
     }
 
-     @AfterClass
-        public void tearDown() {
-       driver.quit();
-   }
+    @AfterClass
+    public void tearDown() {
+        driver.quit();
+    }
 
 }

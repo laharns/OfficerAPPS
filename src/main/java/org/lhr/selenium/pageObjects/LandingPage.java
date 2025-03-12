@@ -12,9 +12,9 @@ import java.io.IOException;
 import java.time.Duration;
 
 public class LandingPage extends AbstractComponent {
-    private  WebDriver driver;
+    private WebDriver driver;
     private WebDriverWait wait;
-    private  PropertyFileReader propertyFileReader;
+    private PropertyFileReader propertyFileReader;
 
     public LandingPage(WebDriver driver) throws IOException {
         super(driver);
@@ -22,17 +22,22 @@ public class LandingPage extends AbstractComponent {
         this.wait = new WebDriverWait(driver, Duration.ofSeconds(10)); // Initialize explicit wait
         this.propertyFileReader = new PropertyFileReader(System.getProperty("user.dir") + "/src/main/java/org/lhr/selenium/utils/Xpath.properties");
     }
+    public void goTo() {
+        driver.get("https://staging.officerapps.net/login");
+    }
 
     public void loginApplication(String user, String password) {
         enterText(propertyFileReader.getLocator("user_email_selector"), user);
         enterText(propertyFileReader.getLocator("user_password_selector"), password);
         clickElement(propertyFileReader.getLocator("login_button_selector"));
     }
+
     public String getErrorMessage() {
         waitForElementVisible(propertyFileReader.getLocator("error_message_selector"), 5);
         return driver.findElement(propertyFileReader.getLocator("error_message_selector")).getText();
     }
-    public String clickForgotPassword()  {
+
+    public String clickForgotPassword() {
         By forgotPasswordLink = propertyFileReader.getLocator("forgot_password");
         By forgotTextLocator = propertyFileReader.getLocator("forgot_text");
 
@@ -42,7 +47,4 @@ public class LandingPage extends AbstractComponent {
         // Thread.sleep(5000);
     }
 
-    public void goTo() {
-        driver.get("https://staging.officerapps.net/login");
-    }
 }

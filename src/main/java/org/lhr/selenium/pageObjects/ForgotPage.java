@@ -23,7 +23,7 @@ public class ForgotPage extends AbstractComponent {
     public void enterUserForReset(String user) {
 
         enterText(propertyFileReader.getLocator("user_forgot_passowrd"), user);
-        }
+    }
 
     public void submitForgotPassword() {
         clickElement(propertyFileReader.getLocator("forgot_submit"));

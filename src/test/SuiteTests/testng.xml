@@ -11,4 +11,10 @@
             <class name="org.lhr.selenium.tests.ErrorValidationsTest"/>
         </classes>
     </test>
+
+    <test  name="Cancel button Test">
+        <classes>
+            <class name="org.lhr.selenium.tests.CancelbuttonTest"/>
+        </classes>
+    </test>
 </suite>
