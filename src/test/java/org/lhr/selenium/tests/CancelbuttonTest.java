@@ -41,6 +41,11 @@ public class CancelbuttonTest extends BaseTest {
                 "123 Main St","Suite 101", "Toronto", "Ontario", "Canada", "M5A 1A1");
         managerOfficerPage.cancelOfficerForm();
         System.out.println("Edit Cancel officer data successfully.");
+
+        managerOfficerPage.resetofficerpassword("Test@123","Test@123");
+        managerOfficerPage.cancelpassword();
+        System.out.println(" cancel  password Changes");
+
     }
 
     @AfterClass

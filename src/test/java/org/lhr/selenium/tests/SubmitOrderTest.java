@@ -21,7 +21,6 @@ public class SubmitOrderTest extends BaseTest {
         landingPage.goTo();
     }
 
-
     @Test
     public void submitOrder() throws InterruptedException {
         landingPage.loginApplication("MarryIND", "Test@123");
@@ -31,11 +30,14 @@ public class SubmitOrderTest extends BaseTest {
         managerOfficerPage.clickAddOfficer();
         managerOfficerPage.enterOfficerDetails(
                 "Marrymodh","modhpat","Marrymodh@yopmail.com","9878976544","145",
-                "userMarrymodh123","Test@123","Test@123","9528 25 Hwy Halton Hills",
+                "userMarrymodh1","Test@123","Test@123","9528 25 Hwy Halton Hills",
                 "201 James St N ","Hamilton","Ontario","Canada","L8R 2L2");
         managerOfficerPage.submitOfficerForm();
         System.out.println("New officer added successfully.");
         Thread.sleep(3000);
+        managerOfficerPage.resetofficerpassword("Test@123","Test@123");
+        managerOfficerPage.newpassowrdsubmit();
+        System.out.println("New password Changes");
     }
 
     @AfterClass

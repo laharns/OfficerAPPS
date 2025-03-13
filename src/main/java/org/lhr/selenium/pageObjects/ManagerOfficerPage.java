@@ -109,4 +109,15 @@ public class ManagerOfficerPage extends AbstractComponent {
         }
 
     }
+    public void resetofficerpassword(String password, String confirmPassword) {
+        clickElement(propertyFileReader.getLocator("reset_password_officer"));
+        enterText(propertyFileReader.getLocator("new_password"), password);
+        enterText(propertyFileReader.getLocator("officer_confirmPassword"), confirmPassword);
+    }
+    public void newpassowrdsubmit(){
+        clickElement(propertyFileReader.getLocator("password_submit"));
+    }
+    public void cancelpassword(){
+        clickElement(propertyFileReader.getLocator("password_cancel"));
+    }
 }
