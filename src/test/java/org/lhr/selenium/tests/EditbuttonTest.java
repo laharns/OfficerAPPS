@@ -9,7 +9,7 @@ import org.testng.annotations.Test;
 
 import java.io.IOException;
 
-public class CancelbuttonTest extends BaseTest {
+public class EditbuttonTest extends BaseTest {
     private ManagerOfficerPage managerOfficerPage;
 
     @BeforeClass
@@ -19,32 +19,25 @@ public class CancelbuttonTest extends BaseTest {
         managerOfficerPage =new ManagerOfficerPage(driver);
         landingPage.goTo();
     }
+
     @Test
-    public void cancelOfficerCreation() throws InterruptedException {
+    public void editOfficerDetails() throws InterruptedException {
         landingPage.loginApplication("MarryIND", "Test@123");
         Thread.sleep(3000);
         managerOfficerPage.navigateToManageOfficers();
         managerOfficerPage.clickmanageofficer();
         Thread.sleep(3000);
-        managerOfficerPage.clickAddOfficer();
-        managerOfficerPage.enterOfficerDetails(
-                "bela", "Doe", "john.doe@yopmail.com", "9876543210", "123",
-                "userbelaa", "Test@123", "Test@123", "123 Main St",
-                "Suite 101", "Toronto", "Ontario", "Canada", "M5A 1A1");
-        managerOfficerPage.cancelOfficerForm();
-        System.out.println("Cancel officer data successfully.");
-        Thread.sleep(3000);
-
         managerOfficerPage.editofficer();
-        managerOfficerPage.editofficerapp(
-                "bela", "Doe", "john.doe@yopmail.com", "9876543210", "123",
-                "123 Main St","Suite 101", "Toronto", "Ontario", "Canada", "M5A 1A1");
-        managerOfficerPage.cancelOfficerForm();
-        System.out.println("Edit Cancel officer data successfully.");
-    }
 
+        managerOfficerPage.editofficerapp(
+                "mrryINDupdate","modhupdate","mrryIND@yopmail.com","9878976545","145","9528 25 Hwy Halton Hills",
+                "201 James St N ","Hamilton","Ontario","Canada","L8R 2L2");
+        managerOfficerPage.submitOfficerForm();
+        System.out.println("Update officer added successfully.");
+    }
     @AfterClass
     public void tearDown() {
         driver.quit();
     }
 }
+

@@ -3,14 +3,12 @@ package org.lhr.selenium.tests;
 import org.lhr.selenium.base.BaseTest;
 import org.lhr.selenium.pageObjects.LandingPage;
 import org.lhr.selenium.pageObjects.ManagerOfficerPage;
-import org.openqa.selenium.Alert;
-import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import java.io.IOException;
 
-public class SubmitOrderTest extends BaseTest {
+public class DeleteiconTest extends BaseTest {
     private ManagerOfficerPage managerOfficerPage;
 
     @BeforeClass
@@ -21,26 +19,14 @@ public class SubmitOrderTest extends BaseTest {
         landingPage.goTo();
     }
 
-
     @Test
-    public void submitOrder() throws InterruptedException {
+    public void deleteOfficerDetails() throws InterruptedException {
         landingPage.loginApplication("MarryIND", "Test@123");
         Thread.sleep(3000);
         managerOfficerPage.navigateToManageOfficers();
         managerOfficerPage.clickmanageofficer();
-        managerOfficerPage.clickAddOfficer();
-        managerOfficerPage.enterOfficerDetails(
-                "Marrymodh","modhpat","Marrymodh@yopmail.com","9878976544","145",
-                "userMarrymodh123","Test@123","Test@123","9528 25 Hwy Halton Hills",
-                "201 James St N ","Hamilton","Ontario","Canada","L8R 2L2");
-        managerOfficerPage.submitOfficerForm();
-        System.out.println("New officer added successfully.");
         Thread.sleep(3000);
-    }
-
-    @AfterClass
-    public void tearDown() {
-     driver.quit();
+        managerOfficerPage.deleteofficerForm(false);
     }
 
 }
